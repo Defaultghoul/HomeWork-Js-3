@@ -47,12 +47,15 @@ console.log(applyCallbackToArray(myArray, square));
 // 5
 
 const calculateDiscountPrice = (price, discount, callback) => {
-	const newDiscount = showDiscountPrice(price, discount);
-	alert(`Ціна: ${price}, Знижка: ${discount}, Ціна з знижкою: ${newDiscount}`);
+	const newDiscount = price - (price / 100) * discount;
+	showDiscountPrice(
+		`Ціна: ${price}, Знижка: ${discount}, Ціна з знижкою: ${newDiscount}`
+	);
 };
 
-const showDiscountPrice = (price, discount) => {
-	return price - (price / 100) * discount;
+const showDiscountPrice = string => {
+	console.log(string);
 };
 
 calculateDiscountPrice(100, 10, showDiscountPrice);
+
